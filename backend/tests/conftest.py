@@ -14,6 +14,7 @@ BACKEND_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(BACKEND_ROOT))
 os.environ["DATABASE_URL"] = f"sqlite:///{TEST_DATABASE_PATH.as_posix()}"
 os.environ["APP_SECRET_KEY"] = secrets.token_urlsafe(32)
+os.environ["BUILDLOG_TESTING"] = "1"
 
 from app.database import Base, engine  # noqa: E402
 from app.main import app  # noqa: E402
