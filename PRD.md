@@ -306,10 +306,9 @@ BuildLog는 다음과 같이 이 불편을 줄입니다.
 | --- | --- | --- |
 | 화면 | React, HTML, CSS, JavaScript | 화면을 컴포넌트로 나누어 만들고 컴퓨터·휴대폰에 맞게 구성 |
 | 서버 | Python, FastAPI | 회원과 기록 기능을 API로 제공 |
-| 서비스 데이터베이스 | Supabase의 PostgreSQL | 서비스의 기록을 저장 |
-| 테스트 데이터베이스 | SQLite3 | 개발 중 기능과 데이터 동작을 테스트 |
+| 데이터베이스 | SQLite3 | 별도 서버 없이 현재 수업 단계에서 서비스 기능을 만들고 테스트 |
 
-회원가입·로그인은 FastAPI에서 처리하고 Supabase는 PostgreSQL 데이터베이스로 사용합니다. React 개발 화면은 Vite를 사용하고 데이터 저장·구조 변경은 SQLAlchemy 2.x와 Alembic을 기준으로 합니다. 정확한 패키지 버전은 설치 단계에서 고정합니다.
+회원가입·로그인은 FastAPI에서 처리합니다. React 개발 화면은 Vite를 사용하고 데이터 저장은 SQLAlchemy와 SQLite3를 기준으로 합니다. Supabase 연동은 관련 수업을 진행한 뒤 다시 검토합니다.
 
 ## 11. 아직 정하지 않은 내용
 
