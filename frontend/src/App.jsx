@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { apiRequest, clearToken, getToken, saveToken } from './api'
 import DashboardPage from './DashboardPage'
+import MaterialsPage from './MaterialsPage'
 import './App.css'
 
 const nicknamePattern = /^[가-힣A-Za-z0-9_]{2,20}$/
@@ -176,6 +177,7 @@ function HomePage({ user }) {
             </article>
           ))}
         </section>
+        <button className="text-button home-materials-link" type="button" onClick={() => goTo('/materials')}>학습 자료함 보기 →</button>
       </main>
     </div>
   )
@@ -280,6 +282,7 @@ function App() {
   if (path === '/login' && !user) return <LoginPage onLogin={setUser} />
   if (path === '/settings' && user) return <SettingsPage user={user} onUserChange={setUser} />
   if (path === '/dashboard' && user) return <DashboardPage navigate={goTo} user={user} />
+  if (path === '/materials' && user) return <MaterialsPage navigate={goTo} user={user} />
   if (user) return <HomePage user={user} />
   return <LoadingPage />
 }
