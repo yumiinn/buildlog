@@ -24,7 +24,7 @@ function SummaryCard({ label, value, hint }) {
   )
 }
 
-export default function DashboardPage({ navigate }) {
+export default function DashboardPage({ navigate, user }) {
   const [checkedTasks, setCheckedTasks] = useState([])
   const remaining = tasks.length - checkedTasks.length
   const completed = 8 + checkedTasks.length
@@ -48,9 +48,9 @@ export default function DashboardPage({ navigate }) {
           <span className="dashboard-nav-item"><span aria-hidden="true">!</span>오류 기록</span>
           <span className="dashboard-nav-item"><span aria-hidden="true">↗</span>공개 기록</span>
         </nav>
-        <button className="dashboard-account" type="button" onClick={() => navigate('/settings')}>
-          <span className="dashboard-avatar" aria-hidden="true">이</span>
-          <span><strong>이월</strong><small>계정 설정&nbsp; ›</small></span>
+        <button className="dashboard-account" type="button" onClick={() => navigate('/settings')} aria-label={`${user.nickname} 계정 설정`}>
+          <span className="dashboard-avatar" aria-hidden="true">{user.nickname.slice(0, 1)}</span>
+          <span><strong>{user.nickname}</strong><small>계정 설정&nbsp; ›</small></span>
         </button>
       </aside>
 
@@ -58,7 +58,7 @@ export default function DashboardPage({ navigate }) {
         <div className="dashboard-topbar"><span>내 학습 한눈에 보기</span><time dateTime="2026-10-20">2026. 10. 20&nbsp; 화요일</time></div>
 
         <header className="dashboard-greeting">
-          <div><h1>이월님, 차곡차곡 쌓이고 있어요</h1><p>오늘의 배움도 기록으로 남겨보세요.</p></div>
+          <div><h1>{user.nickname}님, 차곡차곡 쌓이고 있어요</h1><p>오늘의 배움도 기록으로 남겨보세요.</p></div>
           <span className="dashboard-new-study">+&nbsp; 공부 기록 쓰기</span>
         </header>
 

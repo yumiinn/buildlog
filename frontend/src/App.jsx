@@ -279,7 +279,7 @@ function App() {
   if (path === '/signup' && !user) return <SignupPage />
   if (path === '/login' && !user) return <LoginPage onLogin={setUser} />
   if (path === '/settings' && user) return <SettingsPage user={user} onUserChange={setUser} />
-  if (path === '/dashboard' && user) return <DashboardPage navigate={goTo} />
+  if (path === '/dashboard' && user) return <DashboardPage navigate={goTo} user={user} />
   if (user) return <HomePage user={user} />
   return <LoadingPage />
 }
