@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { apiRequest, clearToken, getToken, saveToken } from './api'
+import DashboardPage from './DashboardPage'
 import './App.css'
 
 const nicknamePattern = /^[가-힣A-Za-z0-9_]{2,20}$/
@@ -278,6 +279,7 @@ function App() {
   if (path === '/signup' && !user) return <SignupPage />
   if (path === '/login' && !user) return <LoginPage onLogin={setUser} />
   if (path === '/settings' && user) return <SettingsPage user={user} onUserChange={setUser} />
+  if (path === '/dashboard' && user) return <DashboardPage navigate={goTo} />
   if (user) return <HomePage user={user} />
   return <LoadingPage />
 }
